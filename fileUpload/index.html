@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload file to onedrive</title>
+    <script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+</head>
+
+<body>
+    <input id="fileUploadControl" name="fileUploadControl" type="file" />
+    <button onclick="launchSaveToOneDrive()">Save to OneDrive</button>
+    
+    <script type="text/javascript">
+        function launchSaveToOneDrive() {
+            var odOptions = {
+                clientId: "d559c58b-0aab-42bf-9724-0de1296906af",
+                action: "save",
+                sourceInputElementId: "fileUploadControl",
+                openInNewWindow: true,
+                advanced: {},
+                redirectUri: "http://localhost:5500",
+                success: function(files) { console.log("Success!") },
+                progress: function(percent) { console.log(percent) },
+                cancel: function() { console.log("Canceled") },
+                error: function(error) { console.log(error) }
+            }
+            OneDrive.save(odOptions);
+        }
+    </script>
+
+</body>
+</html>
