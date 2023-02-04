@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { UploadLFile } from './UploadLFile';
 
 const OneDriveFilePicker = () => {
   const [link, setLink] = useState('');
@@ -25,6 +26,7 @@ const OneDriveFilePicker = () => {
     };
 
   return (
+    <>
     <div>
       <button onClick={handlePickerSelect}>File Picker</button>
       {link && (
@@ -33,6 +35,8 @@ const OneDriveFilePicker = () => {
         </div>
       )}
     </div>
+    <UploadLFile />
+    </>
   );
 };
 
